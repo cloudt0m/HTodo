@@ -25,7 +25,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {}
   addTodo(title: string) {
-    const lastIdNumber: number = this.todoList[this.todoList.length - 1].id;
+    let lastIdNumber: number = 0
+    if (this.todoList.length > 0) {
+      lastIdNumber = this.todoList[this.todoList.length - 1].id;
+    }
     this.todoList.push({
       id: lastIdNumber + 1,
       title: title,
